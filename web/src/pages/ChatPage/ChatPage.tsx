@@ -5,10 +5,10 @@ const ChatPage = () => {
     <>
       <MetaTags title="Chat" description="Chat page" />
 
-      <h1 className="font-medium text-2xl px-2 py-3 border-l-2 border-white text-white bg-[#5766DA]">
+      <h1 className="border-l-2 border-white bg-[#5766DA] px-2 py-3 text-2xl font-medium text-white">
         Conversas
       </h1>
-      <div className="w-[100%] h-[100%] bg-white"></div>
+      <div className="h-[100%] w-[100%] bg-white"></div>
     </>
   )
 }

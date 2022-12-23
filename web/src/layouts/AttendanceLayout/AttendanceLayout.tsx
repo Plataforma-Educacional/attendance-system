@@ -7,11 +7,11 @@ type AttendanceLayoutProps = {
 const AttendanceLayout = ({ children }: AttendanceLayoutProps) => {
   return (
     <>
-      <header className="flex justify-end px-3">
+      <header className="px-3">
         <div>Portal Educacional</div>
       </header>
-      <body className="flex mt-3 bg-[#5766DA]">
-        <nav className=" w-[100px]">
+      <body className="mt-3 flex bg-[#5766DA]">
+        <nav className=" top-13 fixed h-[100vh] w-[100px] bg-[#5766DA]">
           <ul className="p-2">
             <li className="mb-8 flex justify-center text-white">
               <Link to={routes.home()}>
@@ -28,7 +28,7 @@ const AttendanceLayout = ({ children }: AttendanceLayoutProps) => {
               </Link>
             </li>
             <li className="mb-8 flex justify-center text-white">
-              <Link to={routes.chat()}>
+              <Link to={routes.chatslist()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
@@ -71,7 +71,8 @@ const AttendanceLayout = ({ children }: AttendanceLayoutProps) => {
             </li>
           </ul>
         </nav>
-        <main className="w-[100%]">{children}</main>
+        {/* <div className="w-[100px]"></div> */}
+        <main className="ml-[100px] w-[100%]">{children}</main>
       </body>
     </>
   )

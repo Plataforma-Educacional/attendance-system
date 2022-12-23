@@ -14,6 +14,7 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={AttendanceLayout}>
+        <Route path="/chatslist" page={ChatslistPage} name="chatslist" />
         <Route path="/chat" page={ChatPage} name="chat" />
         <Route path="/" page={HomePage} name="home" />
       </Set>
