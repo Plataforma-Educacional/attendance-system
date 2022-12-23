@@ -25,6 +25,11 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ chats }: CellSuccessProps<ChatsQuery>) => {
+  const formattedDate = (datetime: ConstructorParameters<typeof Date>[0]) => {
+    const parseDate = new Date(datetime)
+    const month = parseDate.toLocaleString('default', { month: 'long' })
+    return `${parseDate.getDate()} ${month} ${parseDate.getFullYear()}`
+  }
   return (
     <>
       <div className="grid grid-cols-6">
@@ -67,7 +72,7 @@ export const Success = ({ chats }: CellSuccessProps<ChatsQuery>) => {
               {item.status}
             </div>
             <div className="border-r-2 border-b-2 border-[#5766da7e] py-3 text-center">
-              {item.date}
+              {formattedDate(item.date)}
             </div>
           </div>
         )
