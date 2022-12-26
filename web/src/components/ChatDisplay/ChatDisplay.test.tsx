@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import Gridcell from './Gridcell'
+import ChatDisplay from './ChatDisplay'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('Gridcell', () => {
+describe('ChatDisplay', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Gridcell />)
+      render(<ChatDisplay />)
     }).not.toThrow()
   })
 })

@@ -4,8 +4,8 @@
 // ```tsx
 // import type { ComponentStory } from '@storybook/react'
 //
-// export const generated: ComponentStory<typeof Gridcell> = (args) => {
-//   return <Gridcell {...args} />
+// export const generated: ComponentStory<typeof ChatDisplay> = (args) => {
+//   return <ChatDisplay {...args} />
 // }
 // ```
 //
@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import Gridcell from './Gridcell'
+import ChatDisplay from './ChatDisplay'
 
 export const generated = () => {
-  return <Gridcell />
+  return <ChatDisplay />
 }
 
 export default {
-  title: 'Components/Gridcell',
-  component: Gridcell,
-} as ComponentMeta<typeof Gridcell>
+  title: 'Components/ChatDisplay',
+  component: ChatDisplay,
+} as ComponentMeta<typeof ChatDisplay>
