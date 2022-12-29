@@ -1,6 +1,13 @@
+import { Chat } from 'types/graphql'
+
 import { Form, TextField } from '@redwoodjs/forms'
 
-const ChatDisplay = () => {
+import ChatBallon from '../ChatBallon/ChatBallon'
+
+interface Props {
+  chat: Chat
+}
+const ChatDisplay = ({ chat }: Props) => {
   return (
     <>
       <section className="flex h-full flex-col">
@@ -22,7 +29,7 @@ const ChatDisplay = () => {
             </svg>
           </div>
           <div className="ml-2 flex-1">
-            <div className="text-lg">Conversas</div>
+            <div className="text-lg">{chat.name}</div>
             <div className="text-sm">Online</div>
           </div>
 
@@ -30,8 +37,19 @@ const ChatDisplay = () => {
             Aberta
           </button>
         </div>
-        <div className=" flex-1 overflow-y-auto border-x-2 border-[#5766da7e]">
-          Chat
+        <div className=" flex-1 overflow-y-auto border-x-2 border-[#5766da7e] py-5 px-8">
+          {chat.messages.map((m, i: number) => {
+            return (
+              <div key={i}>
+                <ChatBallon
+                  message={m.message}
+                  user={1}
+                  data={'19:00'}
+                  author={m.user_id}
+                />
+              </div>
+            )
+          })}
         </div>
         <div className="flex h-[67px] items-center bg-[#5766DA]">
           <div className="pl-3 text-white">

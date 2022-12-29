@@ -3,7 +3,7 @@ export const standard = (/* vars, { ctx, req } */) => ({
   chats: [
     {
       id: 42,
-      name: 'Teste1',
+      name: 'Patrick',
       client: {
         email: 'TesteEmail@gmail.com',
       },
