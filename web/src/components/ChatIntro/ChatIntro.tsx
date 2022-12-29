@@ -3,7 +3,7 @@ const ChatIntro = () => {
   const bodyHeight = '100%'
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <div className="block h-[56px] w-full bg-[#5766DA]"></div>
       <div
         style={{ height: `calc(${bodyHeight} - ${navbarHeight})` }}

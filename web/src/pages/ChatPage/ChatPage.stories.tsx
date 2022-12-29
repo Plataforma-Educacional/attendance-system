@@ -2,15 +2,19 @@ import type { ComponentMeta } from '@storybook/react'
 
 import AttendanceLayout from 'src/layouts/AttendanceLayout/AttendanceLayout'
 
+import ChatslistPage from '../ChatslistPage/ChatslistPage'
+
 import ChatPage from './ChatPage'
 
-export const generated = () => {
+export const alone = () => {
   return <ChatPage />
 }
 export const Attendance = () => {
   return (
     <AttendanceLayout>
-      <ChatPage />
+      <ChatslistPage>
+        <ChatPage />
+      </ChatslistPage>
     </AttendanceLayout>
   )
 }

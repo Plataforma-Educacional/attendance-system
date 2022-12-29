@@ -12,7 +12,7 @@ const formattedDate = (datetime: ConstructorParameters<typeof Date>[0]) => {
 }
 const ChatTable = ({ chat }: Props) => {
   return (
-    <Link to={routes.chat()}>
+    <Link to={routes.chat({ id: chat.id })}>
       <div className="grid grid-cols-6  hover:bg-[#abc3ff8e]">
         <div className="border-r-2 border-b-2 border-[#5766da7e] py-3 text-center">
           {chat.name}

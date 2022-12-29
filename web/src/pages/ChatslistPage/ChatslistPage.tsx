@@ -1,13 +1,13 @@
-import { useState } from 'react'
-
 import { MetaTags } from '@redwoodjs/web'
 
-import ChatDisplay from 'src/components/ChatDisplay/ChatDisplay'
-import ChatIntro from 'src/components/ChatIntro/ChatIntro'
+// import ChatDisplay from 'src/components/ChatDisplay/ChatDisplay'
 import ChatsCell from 'src/components/ChatsCell'
 
-const ChatslistPage = () => {
-  const [activeChat, setActiveChat] = useState(undefined)
+type ChatListPageProps = {
+  children?: React.ReactNode
+}
+
+const ChatslistPage = ({ children }: ChatListPageProps) => {
   return (
     <>
       <MetaTags title="Chatslist" description="Chatslist page" />
@@ -18,18 +18,7 @@ const ChatslistPage = () => {
           </h2>
           <ChatsCell type="list" />
         </div>
-
-        <div className="flex-1">
-          {activeChat && <ChatDisplay />}
-          {!activeChat && <ChatIntro />}
-        </div>
-        {activeChat && (
-          <div className="flex-1">
-            <h2 className="border-l-2 border-white bg-[#5766DA] px-2 py-3 text-2xl font-medium text-white">
-              Conversas
-            </h2>
-          </div>
-        )}
+        {children}
       </div>
     </>
   )

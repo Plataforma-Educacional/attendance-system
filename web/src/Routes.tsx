@@ -10,12 +10,17 @@ import { Router, Route, Set } from '@redwoodjs/router'
 
 import AttendanceLayout from 'src/layouts/AttendanceLayout'
 
+import ChatIntro from './components/ChatIntro/ChatIntro'
+
 const Routes = () => {
   return (
     <Router>
       <Set wrap={AttendanceLayout}>
         <Route path="/chatslist" page={ChatslistPage} name="chatslist" />
-        <Route path="/chat" page={ChatPage} name="chat" />
+        <Set wrap={ChatslistPage}>
+          <Route path="/chat" page={ChatIntro} name="chat" />
+          <Route path="/chat/{id}" page={ChatPage} name="chat" />
+        </Set>
         <Route path="/" page={HomePage} name="home" />
       </Set>
       <Route notfound page={NotFoundPage} />

@@ -1,5 +1,6 @@
 import type { ChatsQuery } from 'types/graphql'
 
+import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import ChatItem from '../ChatItem/ChatItem'
@@ -40,7 +41,9 @@ export const Success = ({
         return type === 'home' ? (
           <ChatTable chat={item} key={item.id} />
         ) : (
-          <ChatItem chat={item} key={item.id} />
+          <Link to={routes.chat({ id: item.id })}>
+            <ChatItem chat={item} key={item.id} />
+          </Link>
         )
       })}
     </>
