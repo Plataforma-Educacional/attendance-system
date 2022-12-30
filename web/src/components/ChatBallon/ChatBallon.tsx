@@ -4,7 +4,10 @@ interface Props {
   message: string
   data: string
 }
-
+const formattedDate = (datetime: ConstructorParameters<typeof Date>[0]) => {
+  const parseDate = new Date(datetime)
+  return `${parseDate.getHours()}:${parseDate.getMinutes()}`
+}
 const ChatBallon = ({ message, user, author, data }: Props) => {
   return (
     <div
@@ -40,7 +43,7 @@ const ChatBallon = ({ message, user, author, data }: Props) => {
           ></span>
         </div>
         <div className="mr-1.5 mt-[-15px] h-4 text-right text-xs text-[#999]">
-          {data}
+          {formattedDate(data)}
         </div>
       </div>
     </div>

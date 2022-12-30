@@ -8,11 +8,16 @@ const AttendanceLayout = ({ children }: AttendanceLayoutProps) => {
   return (
     <>
       <div className="h-screen">
-        <header className="px-3">
+        <header className="h-7 px-3">
           <div>Portal Educacional</div>
         </header>
-        <body className="mt-3 flex h-full bg-[#5766DA]">
-          <nav className=" top-13 fixed h-full w-[80px] bg-[#5766DA]">
+        <body className=" flex h-full bg-[#5766DA]">
+          <nav
+            style={{
+              height: 'calc(100% - 2rem)',
+            }}
+            className=" top-13 fixed h-full w-[80px] bg-[#5766DA]"
+          >
             <ul className="p-2">
               <li className="mb-8 flex justify-center text-white">
                 <Link to={routes.home()}>

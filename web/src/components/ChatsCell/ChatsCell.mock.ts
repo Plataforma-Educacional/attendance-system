@@ -3,77 +3,151 @@ export const standard = (/* vars, { ctx, req } */) => ({
   chats: [
     {
       id: 42,
-      name: 'Patrick',
-      client: {
-        email: 'TesteEmail@gmail.com',
-      },
+      client: 'Fenda do biquini',
       user: {
-        name: 'Fulano',
-      },
-      duration: 6,
-      status: 'active',
-      date: '2022-10-14T18:22:37.005Z',
-      messages:
-        ' Proin commodo, nunc ac ultricies ullamcorper, erat felis commodo elit, mollis efficitur purus arcu at ipsum.',
-    },
-    {
-      id: 43,
-      name: 'Teste2',
-      client: {
-        email: 'TesteEmail@gmail.com',
-      },
-      user: {
-        name: 'Fulano',
-      },
-      duration: 3,
-      status: 'active',
-      date: '2022-02-11T13:56:37.005Z',
-      messages: 'Nulla et nisi dui. Integer a blandit neque. ',
-    },
-    {
-      id: 44,
-      name: 'Teste3',
-      client: {
-        email: 'TesteEmail@gmail.com',
-        messages: 'Nullam et pellentesque ante. Nulla facilisis aliquet quam',
-      },
-      user: {
-        name: 'Fulano',
-      },
-      duration: 35,
-      status: 'active',
-      date: '2022-12-14T16:10:37.005Z',
-      messages:
-        'Duis tincidunt, eros sed semper suscipit, dolor diam interdum dolor, id placerat odio lorem in elit',
-    },
-    {
-      id: 45,
-      name: 'Teste4',
-      client: {
-        email: 'TesteEmail@gmail.com',
-      },
-      user: {
-        name: 'Fulano',
-      },
-      duration: 15,
-      status: 'active',
-      date: '2022-12-14T03:53:37.005Z',
-      messages:
-        'Donec vitae quam ultrices lacus finibus laoreet nec finibus mauris.',
-    },
-    {
-      id: 42,
-      name: 'Teste5',
-      client: {
-        email: 'TesteEmail@gmail.com',
-      },
-      user: {
-        name: 'Fulano',
+        name: 'Patrick Estrela',
+        pfp: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSElcuslt829M4GRunQB4d_XR1CCtwIVaM2Bw&usqp=CAU',
+        email: 'Patrick@example.com',
+        cell: '0-X5x12A-6345',
+        role: 'Monitor',
       },
       duration: 6,
       status: 'active',
       date: '2022-07-14T10:02:37.005Z',
-      messages: 'Fusce eleifend dignissim risus eget consectetur.',
+      messages: [
+        {
+          user_id: 42,
+          message: "Hey, Bob! What's up?",
+          data: '2022-10-14T17:49:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            'Not much, Patrick. Just hanging out at the Krusty Krab, as usual. How about you?',
+          data: '2022-10-14T17:50:37.005Z',
+        },
+        {
+          user_id: 42,
+          message:
+            'Same old, same old. Just lounging on the rock, enjoying the sunshine.',
+          data: '2022-10-14T17:52:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            "Yeah, it's a great day for a little relaxing. Hey, have you heard about that new burger place that just opened up in town?",
+
+          data: '2022-10-14T17:53:37.005Z',
+        },
+        {
+          user_id: 42,
+          message: "No, I haven't. What's it called?",
+          data: '2022-10-14T17:55:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            "It's called the Chum Bucket. I heard they have some pretty good burgers.",
+          data: '2022-10-14T18:10:37.005Z',
+        },
+        {
+          user_id: 42,
+          message:
+            "Really? I'll have to check it out. I'm always up for trying a new burger place.",
+          data: '2022-10-14T18:15:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            'Yeah, me too. Maybe we can go check it out together sometime.',
+          data: '2022-10-14T18:19:37.005Z',
+        },
+
+        {
+          user_id: 42,
+          message: 'Sounds like a plan! See you later, Bob.',
+          data: '2022-10-14T18:20:37.005Z',
+        },
+        {
+          user_id: 1,
+          message: 'See you later, Patrick.',
+          data: '2022-10-14T18:22:37.005Z',
+        },
+      ],
+    },
+    {
+      id: 42,
+      client: 'Fenda do biquini',
+      user: {
+        name: 'Patrick Estrela',
+        pfp: '',
+        email: 'Patrick@example.com',
+        cell: '0-X5x12A-6345',
+        role: 'Monitor',
+      },
+      duration: 6,
+      status: 'active',
+      date: '2022-07-14T10:02:37.005Z',
+      messages: [
+        {
+          user_id: 42,
+          message: "Hey, Bob! What's up?",
+          data: '2022-10-14T17:49:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            'Not much, Patrick. Just hanging out at the Krusty Krab, as usual. How about you?',
+          data: '2022-10-14T17:50:37.005Z',
+        },
+        {
+          user_id: 42,
+          message:
+            'Same old, same old. Just lounging on the rock, enjoying the sunshine.',
+          data: '2022-10-14T17:52:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            "Yeah, it's a great day for a little relaxing. Hey, have you heard about that new burger place that just opened up in town?",
+
+          data: '2022-10-14T17:53:37.005Z',
+        },
+        {
+          user_id: 42,
+          message: "No, I haven't. What's it called?",
+          data: '2022-10-14T17:55:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            "It's called the Chum Bucket. I heard they have some pretty good burgers.",
+          data: '2022-10-14T18:10:37.005Z',
+        },
+        {
+          user_id: 42,
+          message:
+            "Really? I'll have to check it out. I'm always up for trying a new burger place.",
+          data: '2022-10-14T18:15:37.005Z',
+        },
+        {
+          user_id: 1,
+          message:
+            'Yeah, me too. Maybe we can go check it out together sometime.',
+          data: '2022-10-14T18:19:37.005Z',
+        },
+
+        {
+          user_id: 42,
+          message: 'Sounds like a plan! See you later, Bob.',
+          data: '2022-10-14T18:20:37.005Z',
+        },
+        {
+          user_id: 1,
+          message: 'See you later, Patrick.',
+          data: '2022-10-14T18:22:37.005Z',
+        },
+      ],
     },
   ],
 })

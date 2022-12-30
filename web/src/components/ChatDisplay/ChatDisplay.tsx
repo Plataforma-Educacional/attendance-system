@@ -13,23 +13,32 @@ const ChatDisplay = ({ chat }: Props) => {
       <section className="flex h-full flex-col">
         <div className="flex border-l-2 border-white bg-[#5766DA] px-2 py-1 align-middle text-2xl font-medium text-white">
           <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              className="bi bi-person-circle"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path
-                fillRule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            {chat.user.pfp === '' && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                className="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fillRule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+            )}
+            {chat.user.pfp !== '' && (
+              <img
+                src={chat.user.pfp}
+                alt={chat.user.name}
+                className="h-12 w-12 rounded-full object-cover object-center"
               />
-            </svg>
+            )}
           </div>
           <div className="ml-2 flex-1">
-            <div className="text-lg">{chat.name}</div>
+            <div className="text-lg font-semibold">{chat.user.name}</div>
             <div className="text-sm">Online</div>
           </div>
 
@@ -44,7 +53,7 @@ const ChatDisplay = ({ chat }: Props) => {
                 <ChatBallon
                   message={m.message}
                   user={1}
-                  data={'19:00'}
+                  data={m.data}
                   author={m.user_id}
                 />
               </div>
