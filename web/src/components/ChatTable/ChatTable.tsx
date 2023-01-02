@@ -15,10 +15,10 @@ const ChatTable = ({ chat }: Props) => {
     <Link to={routes.chat({ id: chat.id })}>
       <div className="grid grid-cols-6  hover:bg-[#abc3ff8e]">
         <div className="border-r-2 border-b-2 border-[#5766da7e] py-3 text-center">
-          {chat.name}
+          {chat.user.name}
         </div>
         <div className="border-r-2 border-b-2 border-[#5766da7e] py-3 text-center">
-          {chat.client.email}
+          {chat.user.email}
         </div>
         <div className="border-r-2 border-b-2 border-[#5766da7e] py-3 text-center">
           {chat.user.name}
