@@ -14,7 +14,7 @@ const formattedDate = (datetime: ConstructorParameters<typeof Date>[0]) => {
 const ChatItem = ({ chat }: Props) => {
   return (
     <div className="flex  hover:bg-[#abc3ff8e]">
-      <div className="rounded-full p-1">
+      <div className=" flex p-1 align-middle">
         {chat.user.pfp === '' && (
           <div className=" m-1 rounded-full bg-gray-300 text-gray-600">
             <svg
@@ -34,13 +34,11 @@ const ChatItem = ({ chat }: Props) => {
           </div>
         )}
         {chat.user.pfp !== '' && (
-          <div className="m-1 rounded-full">
-            <img
-              src={chat.user.pfp}
-              alt={chat.user.name}
-              className="h-14 w-14 rounded-full object-cover object-center"
-            />
-          </div>
+          <img
+            src={chat.user.pfp}
+            alt={chat.user.name}
+            className=" h-14 w-16 rounded-full object-cover object-center"
+          />
         )}
       </div>
       <div className="w-full border-t-2 border-[#5766da7e] py-1 px-2">

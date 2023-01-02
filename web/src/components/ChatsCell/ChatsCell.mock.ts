@@ -76,13 +76,13 @@ export const standard = (/* vars, { ctx, req } */) => ({
       ],
     },
     {
-      id: 42,
+      id: 43,
       client: 'Fenda do biquini',
       user: {
-        name: 'Patrick Estrela',
+        name: 'Sandy',
         pfp: '',
-        email: 'Patrick@example.com',
-        cell: '0-X5x12A-6345',
+        email: 'esquilo@example.com',
+        cell: '0-X5x12A-1515',
         role: 'Monitor',
       },
       duration: 6,
