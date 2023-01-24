@@ -20,7 +20,7 @@ const ChatInformation = ({ chat }: Props) => {
           Dados de contato
         </h2>
       </div>
-      <div className="text-center text-slate-600">
+      <div className="py-10 text-center text-slate-600">
         <div className="flex justify-center">
           <img
             src={chat.user.pfp}

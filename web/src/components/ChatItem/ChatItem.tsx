@@ -13,16 +13,15 @@ const formattedDate = (datetime: ConstructorParameters<typeof Date>[0]) => {
 }
 const ChatItem = ({ chat }: Props) => {
   return (
-    <div className="flex  hover:bg-[#abc3ff8e]">
+    <div className="group flex hover:bg-[#5766DA]">
       <div className=" flex p-1 align-middle">
         {chat.user.pfp === '' && (
-          <div className=" m-1 rounded-full bg-gray-300 text-gray-600">
+          <div className="fill-[#5766DA] group-hover:fill-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="45"
-              height="45"
-              fill="currentColor"
-              className="bi bi-person-circle"
+              width="50"
+              height="50"
+              className="bi bi-person-circle rounded-full bg-[#ABC3FF] group-hover:bg-[#5766DA]"
               viewBox="0 0 16 16"
             >
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -41,14 +40,16 @@ const ChatItem = ({ chat }: Props) => {
           />
         )}
       </div>
-      <div className="w-full border-t-2 border-[#5766da7e] py-1 px-2">
+      <div className="w-full border-t-2 border-[#5766da7e] py-1 px-2 group-hover:border-[#5766DA] ">
         <div className="flex justify-between">
-          <div className="mr-10 text-lg font-semibold">{chat.user.name}</div>
-          <div className="font-light text-slate-500">
+          <div className="mr-10 text-lg font-semibold group-hover:text-white">
+            {chat.user.name}
+          </div>
+          <div className="font-light text-slate-500 group-hover:text-white">
             {formattedDate(chat.messages[chat.messages.length - 1].data)}
           </div>
         </div>
-        <div className="text-slate-500">
+        <div className="text-slate-500 group-hover:text-white">
           <p>{truncate(chat.messages[chat.messages.length - 1].message, 45)}</p>
         </div>
       </div>
