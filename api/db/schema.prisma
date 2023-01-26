@@ -8,11 +8,55 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  name         String?
+  display_name String
+  role         Role          @relation(fields: [role_id], references: [id])
+  role_id      Int
+  chat_member  Chat_Member[]
+  Message      Message[]
+}
+
+model Role {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  permissions String?
+  user        User[]
+}
+
+model Chat {
+  id           Int            @id @default(autoincrement())
+  status       Int
+  created_at   DateTime       @default(now())
+  updated_at   DateTime
+  chat_member  Chat_Member[]
+  Chat_Message Chat_Message[]
+}
+
+model Chat_Message {
+  id         Int     @id @default(autoincrement())
+  message    Message @relation(fields: [message_id], references: [id])
+  chat       Chat    @relation(fields: [chat_id], references: [id])
+  message_id Int
+  chat_id    Int
+}
+
+model Message {
+  id           Int            @id @default(autoincrement())
+  body         String
+  created_at   DateTime       @default(now())
+  updated_at   DateTime
+  author       User           @relation(fields: [user_id], references: [id])
+  user_id      Int
+  Chat_Message Chat_Message[]
+}
+
+model Chat_Member {
+  id      Int  @id @default(autoincrement())
+  author  User @relation(fields: [user_id], references: [id])
+  chat    Chat @relation(fields: [chat_id], references: [id])
+  user_id Int
+  chat_id Int
 }
