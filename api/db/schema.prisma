@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -11,8 +11,8 @@ generator client {
 model User {
   id           Int           @id @default(autoincrement())
   email        String        @unique
-  name         String?
-  display_name String
+  name         String
+  display_name String?
   role         Role          @relation(fields: [role_id], references: [id])
   role_id      Int
   chat_member  Chat_Member[]
@@ -22,7 +22,7 @@ model User {
 model Role {
   id          Int     @id @default(autoincrement())
   name        String?
-  permissions String?
+  permissions Json?
   user        User[]
 }
 
