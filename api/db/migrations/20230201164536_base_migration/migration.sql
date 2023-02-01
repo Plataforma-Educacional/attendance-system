@@ -2,20 +2,35 @@
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "display_name" TEXT,
-    "role_id" INTEGER NOT NULL,
+    "hashedPassword" TEXT NOT NULL,
+    "salt" TEXT NOT NULL,
+    "resetToken" TEXT,
+    "resetTokenExpiresAt" TIMESTAMP(3),
+    "webAuthnChallenge" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Role" (
-    "id" SERIAL NOT NULL,
-    "name" TEXT,
-    "permissions" JSONB,
+CREATE TABLE "UserCredential" (
+    "id" TEXT NOT NULL,
+    "userId" INTEGER NOT NULL,
+    "publicKey" BYTEA NOT NULL,
+    "transports" TEXT,
+    "counter" BIGINT NOT NULL,
 
-    CONSTRAINT "Role_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "UserCredential_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "UserRole" (
+    "id" SERIAL NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "name" TEXT NOT NULL,
+    "userId" INTEGER,
+
+    CONSTRAINT "UserRole_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -60,8 +75,17 @@ CREATE TABLE "Chat_Member" (
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "User_webAuthnChallenge_key" ON "User"("webAuthnChallenge");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "UserRole_name_userId_key" ON "UserRole"("name", "userId");
+
 -- AddForeignKey
-ALTER TABLE "User" ADD CONSTRAINT "User_role_id_fkey" FOREIGN KEY ("role_id") REFERENCES "Role"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "UserCredential" ADD CONSTRAINT "UserCredential_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "UserRole" ADD CONSTRAINT "UserRole_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Chat_Message" ADD CONSTRAINT "Chat_Message_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "Message"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
